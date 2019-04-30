@@ -56,8 +56,10 @@ hWC.RunExternalBuild = false;
 %hWC.TclFileForSynthesisBuild = hdlcoder.BuildOption.Default;
 %hWC.CustomBuildTclFile = '';
 
-hWC.TclFileForSynthesisBuild = hdlcoder.BuildOption.Custom;
-hWC.CustomBuildTclFile = '../hdl_wa_bsp/vendor/AnalogDevices/vivado/projects/scripts/adi_build.tcl';
+if ~contains(lower(ReferenceDesignName),'pluto')
+    hWC.TclFileForSynthesisBuild = hdlcoder.BuildOption.Custom;
+    hWC.CustomBuildTclFile = '../hdl_wa_bsp/vendor/AnalogDevices/vivado/projects/scripts/adi_build.tcl';
+end
 
 % Set properties related to 'RunTaskProgramTargetDevice' Task
 %hWC.ProgrammingMethod = hdlcoder.ProgrammingMethod.Download;

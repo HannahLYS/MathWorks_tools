@@ -113,7 +113,11 @@ classdef BSPTestsBase < matlab.unittest.TestCase
         
         function cfg = extractConfigs(testCase,config)
             s = strsplit(config,'.');
-            modes = strsplit(s{4},'_');
+            try
+                modes = strsplit(s{4},'_');
+            catch
+                modes = strsplit(s{3},'_');
+            end
             mode = modes{end};
             h1 = str2func(config);h1 = h1();
             

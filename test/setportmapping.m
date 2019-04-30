@@ -36,6 +36,9 @@ elseif contains(lower(ReferenceDesignName),'9009')
         mdl = 'testModel_Rx16Tx32';
         portWidthTX = 32;
     end
+elseif contains(lower(ReferenceDesignName),'pluto')
+    dev = 'AD9361';
+    numChannels = 2;
 else
     error('Unknown device');
 end
